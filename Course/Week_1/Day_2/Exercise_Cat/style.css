@@ -1,0 +1,50 @@
+.markline {
+    margin-top: 20px;
+}
+.senses {
+    margin-left: 48px;
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+}
+ul {
+    margin-left: 49px;
+}
+
+ol {
+    list-style-type: upper-roman;
+}
+.mediat {
+text-align: center;
+}
+
+.catimg {
+    border: 5px solid rgb(255, 119, 0);
+    width: 410px;
+    height: 289px;
+    display: block;
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.character {
+    text-align: center;
+    color: red;
+    border: 3px solid red;
+}
+
+.tablehead {
+    border: 2px solid black;
+}
+.tableinfo {
+    border: 2px solid black;
+}
+.lionimg {
+    border: 5px solid rgb(255, 119, 0);
+    width: 610px;
+    height: 510px;
+    display: block;
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+}
