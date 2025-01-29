@@ -1,0 +1,62 @@
+p {
+    background-color: aquamarine;
+}
+
+div p {
+    background-color: rgb(210, 144, 63);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.greensquare {
+    background-color: rgb(120, 241, 187);
+    border: 3px solid green;
+    padding: 24px;
+}
+
+.greensquare p {
+
+    background-color: rgb(120, 241, 187);
+    margin-top: 15px;
+    margin-left: 12px;
+
+}
+.underscore {
+    text-decoration: underline;
+}
+
+.flag div {
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+}
+
+.blue {
+    background-color: blue;
+}
+.white {
+    background-color: white;
+}
+
+.red {
+    background-color: red;
+}
+
+div ul li:nth-child(2) {
+    color: blue;
+}
+
+div ul {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+div:last-of-type p:first-of-type {
+    background-color: pink;
+    color: white;
+}
+div:last-of-type p:last-of-type {
+    background-color: lightblue;
+    padding: 3px;
+    margin: 6px;
+}
