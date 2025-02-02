@@ -62,8 +62,19 @@ color: white;
     font-size: 16px;
 }
 
+.overred {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgb(231, 109, 109);
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 10px;
+}
+
 .cardtext{
-    margin-left: 35px;
+    margin-left: 49px;
 }
 
 .description {
@@ -79,9 +90,10 @@ color: white;
 a:link, a:visited, a:hover, a:active {
     color: rgb(164, 164, 164);
     text-decoration: none;
+    
 }
 .addcart {
-    margin-left: 6px;
+    margin-left: 19px;
     background-color: #ffffff;
     border: 0.5px solid rgb(226, 226, 226);
     border-radius: 4px;
