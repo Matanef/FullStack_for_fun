@@ -28,8 +28,9 @@
     color: grey;
     margin: 4px;
     border: none;
-    width:280px;
+    width: 300px;
     height: 29px;
+    margin: 7px;
 } 
 
 .forgotpassword {
@@ -39,14 +40,14 @@
 .submitb {
     display: block;
     margin: 0 auto;
-    width:280px;
+    width: 300px;
     height: 29px;
     background-color: blueviolet;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
     color: white;
     border: none;
-
+    margin: 7px;
 }
 .hrcontainer {
     display: flex;
@@ -85,7 +86,11 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 32px;
 }
+ p{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
 
+ }
 .addicon {
     display: flex;
     flex-direction: column;
