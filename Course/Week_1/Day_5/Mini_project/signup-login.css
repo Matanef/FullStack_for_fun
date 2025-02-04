@@ -1,3 +1,7 @@
+body {
+    background-color: bisque;
+}
+
 .navbar {
     display: block;
     background-color: black;
@@ -59,21 +63,52 @@ input {
     border: none;
 }
 
+/*------------------------------------------
+  Responsive Grid Media Queries - 1280, 1024, 768, 480
+   1280-1024   - desktop (default grid)
+   1024-768    - tablet landscape
+   768-480     - tablet 
+   480-less    - phone landscape & smaller
+--------------------------------------------*/
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+    body {
+        background-color: aquamarine;
+    }
+ }
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+    body {
+        background-color: royalblue;
+    }
+ }
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+    body {
+        background-color: rosybrown;
+    }
+ }
+
+@media all and (max-width: 480px) {
+    body {
+        background-color: brown;
+    }
+ }
+
 footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 30px; /* Decrease footer height */
+    height: 30px;
     background-color: red;
     color: black;
-    text-align: center; /* Centers text horizontally */
-    padding: 5px 0; /* Ensures text has enough space */
-    font-size: 14px; /* Reduce text size if needed */
-    line-height: 30px; /* Aligns text vertically */
+    text-align: center;
+    padding: 5px 0; 
+    font-size: 14px;
+    line-height: 30px;
 }
 .footer ul {
-    list-style: none; /* Remove bullet points */
+    list-style: none;
     padding: 0;
     margin: 0;
     height: 100%;

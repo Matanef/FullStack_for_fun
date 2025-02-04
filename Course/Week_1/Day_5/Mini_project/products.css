@@ -35,13 +35,14 @@ color: white;
     padding-left: 355px;
 }
 .card {
-    position: relative; /* Makes this the reference for absolute positioning */
+    position: relative; 
     display: inline-block;
     margin: 20px;
     width: 220px;
     background-color: rgb(255, 255, 255);
     padding: 6px;
     display: inline-block;
+    margin: 10px;
 }
 
 .card .productimg{
@@ -71,6 +72,39 @@ color: white;
     border: 2px solid white;
     border-radius: 50%;
     padding: 10px;
+}
+
+.hide {
+    display: none;
+}
+
+.eyeicon:hover + .hide {
+    display: block;
+    color: red;
+}
+
+.overleysquare {
+    position: absolute;
+    top: 150px;
+    left: 40px;
+    border: none;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.overleysquare div {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(225, 225, 225);
+    text-align: center;
+    line-height: 40px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.overleysquare div:hover {
+    background-color: greenyellow ;
 }
 
 .cardtext{
@@ -106,6 +140,37 @@ a:link, a:visited, a:hover, a:active {
     display: inline-block;
     font-size: 16px;
 }
+
+/*------------------------------------------
+  Responsive Grid Media Queries - 1280, 1024, 768, 480
+   1280-1024   - desktop (default grid)
+   1024-768    - tablet landscape
+   768-480     - tablet 
+   480-less    - phone landscape & smaller
+--------------------------------------------*/
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+    body {
+        background-color: aquamarine;
+    }
+ }
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+    body {
+        background-color: royalblue;
+    }
+ }
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+    body {
+        background-color: rosybrown;
+    }
+ }
+
+@media all and (max-width: 480px) {
+    body {
+        background-color: brown;
+    }
+ }
 footer {
     position: fixed;
     left: 0;
