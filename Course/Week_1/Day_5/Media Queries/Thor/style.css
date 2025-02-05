@@ -12,7 +12,18 @@
     li {
         background-color: black  !important;
     }
-
+    .description {
+        position: absolute;
+        width: 850px;
+    }
+    .title {
+        width: 125px;
+    }
+     .desc {
+        display: inline-block;
+        width: 350px;
+     }
+    
  }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
@@ -56,15 +67,15 @@
         background-color: lightgreen  !important;
     }
     .description {
-        position: relative;
+        position: absolute;
+        width: 850px;
     }
     .title {
         width: 125px;
     }
      .desc {
         display: inline-block;
-
-        height: 750px;
+        width: 350px;
      }
  }
 
@@ -85,7 +96,18 @@
     li {
         background-color: yellow !important;
     }
+    .description {
+        position: absolute;
+        width: 850px;
+    }
+    .title {
+        width: 125px;
+    }
+     .desc {
+        display: block;
+        width: 350px;
 
+     }
  }
 
 body {
@@ -139,5 +161,3 @@ li {
     padding: 8px;
     color: white;
  }
-
-
