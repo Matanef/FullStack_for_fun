@@ -33,7 +33,6 @@ color: white;
     margin: auto;
     width: 75%;
     padding: 12px;
-    background-color: aquamarine;
     text-align: center;
 }
 .card {
@@ -108,10 +107,6 @@ color: white;
     background-color: greenyellow ;
 }
 
-.eyeicon:hover + .hide {
-    display: block;
-    color: red;
-}
 .cardtext{
     margin-left: 49px;
 }
@@ -181,21 +176,21 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 30px; /* Decrease footer height */
-    background-color: red;
+    height: 30px;
+    background-color: rgb(255, 236, 209);
     color: black;
-    text-align: center; /* Centers text horizontally */
-    padding: 5px 0; /* Ensures text has enough space */
-    font-size: 14px; /* Reduce text size if needed */
-    line-height: 30px; /* Aligns text vertically */
+    text-align: center;
+    padding: 5px 0;
+    font-size: 14px;
+    line-height: 30px;
 }
 .footer ul {
-    list-style: none; /* Remove bullet points */
+    list-style: none;
     padding: 0;
     margin: 0;
     height: 100%;
 }
 
 .footer ul li {
-    margin: 0 10px; /* Add spacing between list items */
+    margin: 0 10px;
 }
