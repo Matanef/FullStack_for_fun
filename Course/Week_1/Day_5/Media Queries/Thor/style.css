@@ -12,19 +12,7 @@
     li {
         background-color: black  !important;
     }
-    .description {
-        position: absolute;
-        width: 850px;
-        
-    }
-    .title {
-        width: 125px;
-    }
-     .desc {
-        display: inline-block;
-        width: 350px;
-        height: 750px;
-     }
+
  }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
@@ -41,6 +29,12 @@
     li {
         background-color: red  !important;
     }
+
+     .desc {
+        display: inline-block;
+        width: 350px;
+        height: 750px;
+     }
 
  }
 
@@ -61,6 +55,17 @@
     li {
         background-color: lightgreen  !important;
     }
+    .description {
+        position: relative;
+    }
+    .title {
+        width: 125px;
+    }
+     .desc {
+        display: inline-block;
+
+        height: 750px;
+     }
  }
 
 @media all and (max-width: 600px) {
@@ -80,6 +85,7 @@
     li {
         background-color: yellow !important;
     }
+
  }
 
 body {
