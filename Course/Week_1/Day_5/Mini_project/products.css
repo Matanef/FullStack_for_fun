@@ -30,9 +30,11 @@ color: white;
 }
 
 .cardcontainer {
-
+    margin: auto;
+    width: 75%;
     padding: 12px;
-    padding-left: 355px;
+    background-color: aquamarine;
+    text-align: center;
 }
 .card {
     position: relative; 
@@ -41,8 +43,7 @@ color: white;
     width: 220px;
     background-color: rgb(255, 255, 255);
     padding: 6px;
-    display: inline-block;
-    margin: 10px;
+
 }
 
 .card .productimg{
@@ -107,6 +108,10 @@ color: white;
     background-color: greenyellow ;
 }
 
+.eyeicon:hover + .hide {
+    display: block;
+    color: red;
+}
 .cardtext{
     margin-left: 49px;
 }
