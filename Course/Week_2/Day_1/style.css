@@ -1,0 +1,36 @@
+.divflex {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    height: 125px;
+    border: 2px solid green;
+    background-color: lightgreen;
+}
+
+.para, .flexpara{
+    margin-left: 25px;
+}
+.para {
+    margin-top: 25px;
+    flex: 2;
+}
+
+.flexpara {
+    margin-top: -15px;
+    flex: 2;
+}
+.flexbox2 {
+    background-color: aquamarine;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    border: 2px solid green;
+    background-color: lightgreen;
+    padding: 10px;
+}
+
+.opara2, .pp2 {
+    margin: 15px auto 25px 25px;
+    flex: 100%;
+}
