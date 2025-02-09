@@ -1,0 +1,29 @@
+body{
+    background-image: url("dotted-map-world-vector-eps10-260nw-754157836.webp");
+    background-size: cover;
+}
+.container {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+}
+.contitem {
+    border: 2px solid salmon;
+}
+.title {
+    grid-row: 1;
+    grid-column: span 3;
+    text-align: center;
+    font-size: 52px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+}
+
+.numbers{
+    
+}
+.cards {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+}
