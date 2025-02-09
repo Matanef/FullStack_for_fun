@@ -8,7 +8,7 @@ body{
     grid-template-columns: repeat(3, 1fr);
 }
 .contitem {
-    border: 6px solid salmon;
+    /* border: 6px solid salmon; */
 }
 .title {
     grid-row: 1;
@@ -30,11 +30,11 @@ body{
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .paranum {
-    border: 3px solid blue;
+    /* border: 3px solid blue; */
 }
 
 .numdisc{
-    margin-top: -100px;
+    align-self: baseline;
     grid-column: span 3;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -43,18 +43,59 @@ body{
     font-weight: 700;
 }
 .paradisc {
-    border: 3px solid slategray;
+    /* border: 3px solid slategray; */
 }
 .cards {
+    margin-top: -90px;
     grid-column: span 3;
     text-align: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    height: 320px;
     justify-items: center;
-    border: 2px solid darkgreen;
+    /* border: 2px solid darkgreen; */
 }
 
 .card {
-    width: 150PX;
-    border: 3px solid gold;
+    width: 300px;
+    /* border: 3px solid gold; */
+    display: grid;
+}
+.text {
+    font-style: italic;
+    background-color: white;
+    margin-bottom: -20px;
+    border-radius: 10px 10px 0 0;
+    
+}
+
+.text::before {
+    content: "\201C";
+    font-size: 2em;
+    color: gray;
+}
+
+.text::after {
+    content: "\201D";
+    font-size: 2em;
+    color: gray;
+}
+
+.authanddesc {
+    border-radius: 0 0 10px 10px;
+    margin-top: -20px;
+    height: 150px;
+}
+.adone {
+    background-color: hotpink;
+}
+.adtwo {
+    background-color: rebeccapurple;
+}
+
+.adthree {
+    background-color: skyblue;
+}
+img {
+margin-top: -15px;
 }
