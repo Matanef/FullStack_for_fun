@@ -1,4 +1,60 @@
+.navbarcontainer {
+    border: 5px solid forestgreen;
+    height: 40px;
+    display: flex;
+    justify-content: center; 
+}
+.navbar {
+
+}
 .navul {
     list-style: none;
     overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(2, 400px) ;
+    justify-content: center;
+    align-items: center;
+}
+.navli{
+    display: flex;
+    justify-content: center;
+    border: 3px solid palegreen
+}
+.navlitwo{
+    width: 140px;
+}
+
+.downtitle {
+border: 3px solid salmon;
+text-align: center;
+}
+
+.form{
+    display: grid;
+    grid-template-rows: repeat(3, 400px) ;
+    justify-content: center;
+}
+
+/* .formcontainer {
+    display: flex;
+
+} */
+.inputcontainer{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    /* grid-template-rows: repeat(3, 1fr);  */
+    border: 2px solid slateblue;
+}
+.inpcont {
+    border: 3px solid darkcyan;
+    height: 80px;
+}
+
+.sellul {
+    list-style-type: "- ";
+    list-style-position: inside;
+    overflow: hidden;
+}
+.inpcontseven {
+    grid-column: 1/span 3;
 }
