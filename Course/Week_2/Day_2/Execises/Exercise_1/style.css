@@ -103,6 +103,7 @@ body{
 }
 img {
 margin-top: -15px;
+border-radius: 50%;
 }
 .authorname {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
