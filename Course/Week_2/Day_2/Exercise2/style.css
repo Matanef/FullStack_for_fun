@@ -31,8 +31,9 @@ text-align: center;
 
 .form{
     display: grid;
-    grid-template-rows: repeat(3, 400px) ;
+    grid-template-rows: repeat(4, 200px) ;
     justify-content: center;
+    border: 5px solid navy;
 }
 
 /* .formcontainer {
@@ -47,7 +48,7 @@ text-align: center;
 }
 .inpcont {
     border: 3px solid darkcyan;
-    height: 80px;
+    height: 55px;
 }
 
 .sellul {
@@ -57,4 +58,8 @@ text-align: center;
 }
 .inpcontseven {
     grid-column: 1/span 3;
+    display: grid;
+}
+.checkdiv {
+    border: 3px solid gold;
 }
