@@ -1,0 +1,99 @@
+body {
+    background-color: rgb(239, 239, 239);
+}
+.navbarcontainer {
+    background-color: rgb(138, 254, 216);
+}
+.navbar {
+    border: 2px solid salmon;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 950px);
+    margin-left: -150px;
+
+}
+.navulone {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 200px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(4, 100px) ;
+    justify-content: flex-start;
+}
+.navultwo{
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(4, 100px) ;
+    justify-content: flex-end;
+}
+.navli{
+    list-style: none;
+    /* margin-left: -40px; */
+    text-transform: uppercase;
+    padding: 5px;
+    display: flex;
+    border: 3px solid palegreen
+}
+.navlione {
+
+}
+.logo {
+    font-size: 14px;
+}
+.navlitwo{
+    /* width: 100px; */
+    background-color: lightblue;
+}
+
+
+
+.topdiv {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+#region {
+    border: 2px solid rgb(116, 116, 254);
+    border-radius: 5px;
+    width: 120px;
+}
+.middlespacediv{
+    margin: 50px;
+}
+.bottomdiv {
+    display:grid;
+    grid-template-columns: repeat(3, 400px);
+    gap: 50px;
+    justify-content: center;
+    /* border: 2px solid aqua; */
+}
+.card {
+    /* border: 1px solid royalblue; */
+    border-radius: 7px;
+    background-color: white;
+    width: 300px;
+}
+
+.bottomcarddiv {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(118, 118, 172);
+    color: white;
+    height: 400px;
+}
+.featuresh {
+    align-self: flex-start;
+    padding: 7px;
+}
+.featurelist {
+    list-style-type: none;
+    align-self: flex-start;
+
+    margin-top: -10px;
+}
+li {
+    justify-self: flex-start;
+    margin-left: -30px;
+}
