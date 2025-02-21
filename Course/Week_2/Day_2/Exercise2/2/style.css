@@ -4,7 +4,7 @@ body {
 
 a:link {
     text-decoration: none;
-    color: rgb(182, 182, 182) ;
+    /* color: rgb(182, 182, 182) ; */
 }
 a:visited {
     text-decoration: none;
@@ -89,11 +89,60 @@ a:visited {
     justify-content: center;
     /* border: 2px solid aqua; */
 }
+
 .card {
     /* border: 1px solid royalblue; */
     border-radius: 7px;
     background-color: white;
     width: 300px;
+}
+.mostpopular {
+    text-transform: uppercase;
+    text-align: center;
+    height: 20px;
+    margin-top: -37px;
+    background-color: rgb(150, 150, 222);
+    color: white;
+    /* border: 2px solid salmon; */
+    border-radius: 7px 7px 0 0;
+}
+
+.topcarddiv {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.acctype {
+    text-transform: uppercase;
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 753;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+.touch {
+    text-transform: uppercase;
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 753;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: 30px;
+}
+.trial {
+    text-transform: uppercase;
+    color: white;
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 753;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    background-color: rgb(107, 240, 107);
+    width: 250px;
+    border-radius: 4px;
+    height: 25px;
+    align-content: center;
 }
 
 .bottomcarddiv {
@@ -116,4 +165,23 @@ a:visited {
 li {
     justify-self: flex-start;
     margin-left: -30px;
+}
+
+.smallfooter {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    
+    bottom: 0;
+    right: 25px;
+    border-radius: 7px 7px 0 0;
+    width: 320px;
+    height: 55px;
+    background-color: blue;
+    text-align: center;
+}
+.footerp{
+    color: white;
+    margin-bottom: 15px;
 }
