@@ -1,0 +1,120 @@
+/* body {
+    background: 
+    linear-gradient(
+        90deg, 
+        rgb(0, 0, 255, 0.5) 0px,
+        rgb(0, 0, 255, 0.5) 20px,
+        rgb(255, 0, 0, 0.5) 20px,
+        rgb(255, 0, 0, 0.5) 40px,
+        transparent 50%
+    ),        
+    linear-gradient(
+        0deg, 
+        rgb(226, 255, 5, 0.5) 0px, 
+        rgb(226, 255, 5, 0.5) 20px,
+        rgb(207, 125, 213, 0.5) 20px,
+        rgb(207, 125, 213, 0.5) 40px,
+        transparent 50%
+        );
+} */
+
+
+/* body {
+    background: 
+    linear-gradient(to left, rgb(207, 125, 213) 50%, transparent 50%, green 50%, transparent 50%),
+    linear-gradient(to bottom, rgb(250, 26, 26) 50%, rgb(66, 4, 251) 50%),
+    linear-gradient(to top, rgb(104,253,73) 50%, rgb(104, 211, 204) 50%);
+    background-size: 100px 100px;
+    
+} */
+
+
+body {
+
+    background-size: 40px 40px;
+}
+
+.checkboard {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    height: auto;
+}
+.square {
+    margin: 4px;
+}
+
+.firstsquare {
+    width: 300px;  /* Adjust size as needed */
+    height: 300px;
+    background:
+      /* ROW 1 */
+      linear-gradient(rgba(255, 0, 0) 0 0) 0% 0% / 33.33% 33.33%,
+      linear-gradient(rgba(0, 255, 0) 0 0) 50% 0% / 33.33% 33.33%,
+      linear-gradient(rgba(0, 0, 255) 0 0) 100% 0% / 33.33% 33.33%,
+      
+      /* ROW 2 */
+      linear-gradient(rgba(255, 255, 0) 0 0) 0% 50% / 33.33% 33.33%,
+      linear-gradient(rgba(255, 0, 255) 0 0) 50% 50% / 33.33% 33.33%,
+      linear-gradient(rgba(0, 255, 255) 0 0) 100% 50% / 33.33% 33.33%,
+      
+      /* ROW 3 */
+      linear-gradient(rgba(128, 0, 128) 0 0) 0% 100% / 33.33% 33.33%,
+      linear-gradient(rgba(255, 165, 0) 0 0) 50% 100% / 33.33% 33.33%,
+      linear-gradient(rgba(128, 128, 128) 0 0) 100% 100% / 33.33% 33.33%,
+      
+      /* Fallback background (optional) */
+      white;
+    background-repeat: no-repeat;
+    border: 2px solid black; /* Optional border */
+}
+.secondsquare {
+    background: 
+    repeating-conic-gradient(
+        from 0deg,
+        rgba(0, 0, 255) 0deg 90deg,
+        rgba(255, 0, 0) 90deg 180deg,
+        rgba(66, 255, 56) 180deg 270deg,
+        rgba(241, 233, 8) 270deg 360deg
+    );
+    height: 75px;
+}
+.thirdsquare {
+    width: 300px;  /* Adjust size as needed */
+    height: 300px;
+    background:
+    /* Row 1: Top */
+    linear-gradient(rgba(128, 0, 128) 0 0) 0% 0% / 32% 32%,    /* Top-left square */
+    linear-gradient(rgba(255,0,0) 0 0) 50% 0% / 32% 32%,  /* Top-center square */
+    linear-gradient(rgba(0,0,255) 0 0) 100% 0% / 32% 32%,  /* Top-right square */
+    
+    /* Row 2: Middle */
+    linear-gradient(yellow 0 0) 0% 50% / 32% 32%, /* Middle-left square */
+    linear-gradient(purple 0 0) 50% 50% / 32% 32%, /* Center square */
+    linear-gradient(cyan 0 0) 100% 50% / 32% 32%,  /* Middle-right square */
+    
+    /* Row 3: Bottom */
+    linear-gradient(pink 0 0) 0% 100% / 32% 32%,   /* Bottom-left square */
+    linear-gradient(orange 0 0) 50% 100% / 32% 32%,/* Bottom-center square */
+    linear-gradient(gray 0 0) 100% 100% / 32% 32%;
+    background-repeat: no-repeat;
+}
+
+/* Exercise 3 */
+/* body {
+    background: 
+    repeating-linear-gradient(
+        90deg,
+        rgba(0, 0, 255, 0.5) 0px,
+        rgba(0, 0, 255, 0.5) 20px,
+        rgba(255, 0, 0, 0.5) 20px,
+        rgba(255, 0, 0, 0.5) 40px
+    ),
+    repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 0, 0.5) 0px,
+        rgba(255, 255, 0, 0.5) 20px,
+        rgba(0, 128, 0, 0.5) 20px,
+        rgba(0, 128, 0, 0.5) 40px
+    );
+    background-size: 40px 40px;
+} */
