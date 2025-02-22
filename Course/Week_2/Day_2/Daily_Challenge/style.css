@@ -1,0 +1,30 @@
+.maincontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid salmon;
+}
+
+.squere {
+    margin: 10px;
+    height: 60px;
+    width: 60px;
+    border: 2px solid black;
+    background-color: yellow;
+}
+.leftcontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+}
+
+.middlecontainer {
+    display: grid;
+    grid-template-columns: repeat(4, 130px);
+    align-items: center;
+}
+.rightcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+}
