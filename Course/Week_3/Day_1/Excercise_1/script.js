@@ -78,3 +78,18 @@ console.log(deletedUsers);
 console.log(newUsers[2]);
 
 
+let favorite = newUsers[2].slice(1)
+console.log(newUsers[2]);
+console.log(favorite);
+console.log(newUsers[2]);
+
+let favorite2 = newUsers[2].slice(1,3)
+console.log(newUsers[2]);
+console.log(favorite2);
+console.log(newUsers[2]);
+
+let newUsersStringOne = newUsers.toString()
+console.log(newUsersStringOne);
+
+let newUsersStringTwo = newUsers[1].toString()
+console.log(newUsersStringTwo);
