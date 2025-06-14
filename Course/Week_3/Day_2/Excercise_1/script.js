@@ -133,4 +133,52 @@ for (const key in building.numberOfRoomsAndRent) {
     }
 }
 
+let danRent = building.numberOfRoomsAndRent["dan"][1]
+console.log(danRent);
+let sarahRent = building.numberOfRoomsAndRent["sarah"][1]
+let davidRent = building.numberOfRoomsAndRent["david"][1]
 
+// for (const key in building.numberOfRoomsAndRent) {
+//     if (building.numberOfRoomsAndRent[key][1]>building.numberOfRoomsAndRent["dan"][1]) {
+//         building.numberOfRoomsAndRent["dan"][1] = building.numberOfRoomsAndRent["dan"][1]+200
+//     }
+    
+// }
+// console.log(building.numberOfRoomsAndRent["dan"][1]);
+
+let combinedRent = sarahRent  +danRent
+console.log(combinedRent);
+if (combinedRent>danRent) {
+    danRent =  danRent+200
+}
+console.log(danRent);
+
+
+//Excercise_5
+
+let family = {
+    Shirly: 64,
+    Rafi: 71,
+    Matan:40,
+    Dana: 31
+}
+
+for (const key in family) {
+console.log(key);
+}
+
+for (const key in family) {
+console.log(family[key]);
+}
+
+const details = {
+  my: 'name',
+  is: 'Rudolf',
+  the: 'reindeer'
+}
+
+let sentence = [];
+for (const key in details) {
+    sentence += key + " " +details[key]+ " "
+}
+console.log(sentence);
