@@ -182,3 +182,30 @@ for (const key in details) {
     sentence += key + " " +details[key]+ " "
 }
 console.log(sentence);
+
+//Excercise_7
+
+let societyName = []
+const names = ["Jack", "Philip", "Sarah", "Amanda", "Bernard", "Kyle"];
+const sortedNames = names.sort()
+console.log(sortedNames);
+
+
+for (let index = 0; index < names.length; index++) {
+    const element = names[index];
+    console.log(element);
+    for (let j = 0; j < element.length; j++) {
+        const elementLetters = element[j];
+        if (element.indexOf(elementLetters)===0) {
+            societyName += elementLetters
+        }
+        
+    }
+    
+}
+
+console.log(societyName);
+
+
+
+
