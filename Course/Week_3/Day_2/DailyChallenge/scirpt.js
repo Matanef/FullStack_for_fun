@@ -21,3 +21,5 @@ console.log(fruits);
 const moreFruits = ["Banana", ["Apples", ["Oranges"], "Blueberries"]];
 let oranges = moreFruits[1][1]
 console.log(oranges);
+
+
