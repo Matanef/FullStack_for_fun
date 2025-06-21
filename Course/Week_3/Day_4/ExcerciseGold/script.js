@@ -37,9 +37,20 @@
 
 let userverb = prompt(`Please enter a Verb`);
 let userVerbLength = userverb.length;
+console.log(userVerbLength);
 
-if (userVerbLength>= 3 &&) {
-    userverb += userverb + "ing"
-} else {
-    
+for (let index = 0; index < userverb.length; index++) {
+    const element = userverb[index];
+
 }
+
+if (userVerbLength>= 3 && !userverb.endsWith("ing")) {
+    userverb = userverb + "ing"
+} else if (userVerbLength>= 3 && userverb.endsWith("ing")) {
+    userverb = userverb + "ly"
+}else{
+    userverb = userverb
+}
+
+
+console.log(userverb);
