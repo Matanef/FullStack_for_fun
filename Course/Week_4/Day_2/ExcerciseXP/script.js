@@ -113,29 +113,57 @@ const prices = {
     "blueberry":10
 } 
 
-console.log(stock.);
+console.log(stock);
 
 
 let shoppingList = ["Banana", "Orange", "Apple"]
 let billAmount = 0;
 
+
 function myBill() {
-    for (let index = 0; index < shoppingList.length; index++) {
-        const element = shoppingList[index].toLocaleLowerCase();
-        if (element in stock) {
-            stock[element] = element-1
-            for (const key in prices) {
-                if (Object.prototype.hasOwnProperty.call(prices, key)) {
-                    const element = prices[key];
-                    billAmount += element;       
-                }
+    for (let i = 0; i < shoppingList.length; i++) {
+    // console.log(element);
+        let fruit = shoppingList[i].toLowerCase()
+        console.log(`this is the fruit ${fruit}`);
+        console.log(`this is how many are in stock ${stock[fruit]}`);
+        console.log(`this is the price of each fruit ${prices[fruit]}`);
+        
+        for (const fruit in stock) {
+            const fruitamount = stock[fruit];
+            const fruitPrice = prices[fruit]
+            // console.log(key);
+            if (fruit ===shoppingList[i].toLowerCase() && fruitamount>0) {
+                stock[fruit] = stock[fruit] -1
+                billAmount +=fruitPrice               
             }
-            
-            
         }
         
-    }
-    return billAmount
+        }
+        return billAmount
+        
+    
 }
+
 let billAmountInMoney = myBill()
 console.log(billAmountInMoney);
+console.log(stock);
+
+// Excercise 5
+
+let changeArray = [0.01, 0.05, 0.10, 0.25]
+
+function changeEnough(itemPrice, amountOfChange) {
+    for (let i = 0; i < changeArray.length; i++) {
+        const coins = changeArray[i];
+        console.log(coins);
+        
+        
+    }
+    if (amountOfChange > itemPrice) {
+        return true
+    }else {
+        return false
+    }
+}
+let changeenoughoutput = changeEnough(13,20)
+console.log(changeenoughoutput);
