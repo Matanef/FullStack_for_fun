@@ -198,8 +198,8 @@ console.log(final);
 
 let hotelPerNight = 140
 let total = 0
-function hotelCost() {
-    let numberOfNights = prompt("Please enter the amount of nights you will stay in the hotel")
+function hotelCost(numberOfNights) {
+    
     console.log(numberOfNights);
     if (isNaN(numberOfNights) || numberOfNights==="") {
         prompt("Please enter a valid number")
@@ -211,8 +211,7 @@ function hotelCost() {
 // let finalCost = hotelCost()
 // console.log(finalCost);
 
-function planeRideCost () {
-    let destination;
+function planeRideCost (destination) {
     do {
         destination = prompt("Please enter your destination").toLowerCase()
     
@@ -233,16 +232,13 @@ function planeRideCost () {
 // let plc = planeRideCost()
 // console.log(plc);
 
-function rentalCarCost() {
-    let numberOfRentalCar = 0
+function rentalCarCost(numberOfRentalCar) {
+
     let rentalFee = 40;
     let discountDays = 10;
     let discount = 0.05;
     let rentFee = 0
-    do {
-        numberOfRentalCar = prompt("Please enter your number of days to rent a car").toLowerCase()
-    
-    } while (isNaN(numberOfRentalCar) || numberOfRentalCar==="");
+
         console.log(numberOfRentalCar);
     if (numberOfRentalCar<discountDays) {
         rentFee = rentalFee*numberOfRentalCar;
@@ -259,9 +255,18 @@ function rentalCarCost() {
 
 function totalVacationCost() {
     let totalVacationCost = 0;
-    let finalCost = hotelCost();
-    let plc = planeRideCost();
-    let rentalTotal = rentalCarCost();
+    let numberOfNights = prompt("Please enter the amount of nights you will stay in the hotel")
+    let finalCost = hotelCost(numberOfNights);
+        do {
+        destination = prompt("Please enter your destination").toLowerCase()
+    
+    } while (!isNaN(destination) || destination==="");
+    let plc = planeRideCost(destination);
+        do {
+        numberOfRentalCar = prompt("Please enter your number of days to rent a car").toLowerCase()
+    
+    } while (isNaN(numberOfRentalCar) || numberOfRentalCar==="");
+    let rentalTotal = rentalCarCost(numberOfRentalCar);
     totalVacationCost += finalCost+plc+rentalTotal
     return totalVacationCost
 }
