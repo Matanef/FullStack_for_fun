@@ -150,20 +150,121 @@ console.log(stock);
 
 // Excercise 5
 
+// let changeArray = [0.01, 0.05, 0.10, 0.25]
+// let calculation = 0
+
+// function changeEnough(itemPrice, amountOfChange) {
+//     for (let i = 0; i < changeArray.length; i++) {
+//         const coins = changeArray[i];
+//         for (let j = 0; j < amountOfChange.length; j++) {
+//             const walletCoins = amountOfChange[j];
+//             // console.log(walletCoins);    
+//         }
+//         // console.log(coins);
+//         calculation += changeArray.map((element, index) => element*amountOfChange[index])
+//         return calculation
+        
+        
+        
+//     }
+//     if (calculation > itemPrice) {
+//         return true
+//     }else {
+//         return false
+//     }
+// }
+// let changeenoughoutput = changeEnough(5,[20, 30, 10, 25])
+// console.log(changeenoughoutput);
+
+
 let changeArray = [0.01, 0.05, 0.10, 0.25]
+let calculation = 0
 
 function changeEnough(itemPrice, amountOfChange) {
+
+
     for (let i = 0; i < changeArray.length; i++) {
-        const coins = changeArray[i];
-        console.log(coins);
-        
+        calculation += amountOfChange[i]*changeArray[i]
         
     }
-    if (amountOfChange > itemPrice) {
-        return true
+    return calculation >= itemPrice
+}
+
+let final = changeEnough(6, [27, 10, 33,10])
+console.log(final);
+
+
+// Excerscise 6
+
+let hotelPerNight = 140
+let total = 0
+function hotelCost() {
+    let numberOfNights = prompt("Please enter the amount of nights you will stay in the hotel")
+    console.log(numberOfNights);
+    if (isNaN(numberOfNights) || numberOfNights==="") {
+        prompt("Please enter a valid number")
     }else {
-        return false
+       total = numberOfNights*hotelPerNight
+        return total
     }
 }
-let changeenoughoutput = changeEnough(13,20)
-console.log(changeenoughoutput);
+// let finalCost = hotelCost()
+// console.log(finalCost);
+
+function planeRideCost () {
+    let destination;
+    do {
+        destination = prompt("Please enter your destination").toLowerCase()
+    
+    } while (!isNaN(destination) || destination==="");
+    console.log(destination);
+    let destObject = {
+        london: 183,
+        paris: 220,
+        Other: 300
+    }
+    if (destObject[destination]) {
+        return destObject[destination]
+    } else {
+        return destObject.Other
+    }
+}
+
+// let plc = planeRideCost()
+// console.log(plc);
+
+function rentalCarCost() {
+    let numberOfRentalCar = 0
+    let rentalFee = 40;
+    let discountDays = 10;
+    let discount = 0.05;
+    let rentFee = 0
+    do {
+        numberOfRentalCar = prompt("Please enter your number of days to rent a car").toLowerCase()
+    
+    } while (isNaN(numberOfRentalCar) || numberOfRentalCar==="");
+        console.log(numberOfRentalCar);
+    if (numberOfRentalCar<discountDays) {
+        rentFee = rentalFee*numberOfRentalCar;
+        return rentFee
+    } else{
+        rentFee = rentalFee*numberOfRentalCar - discount*rentalFee*numberOfRentalCar;
+        return rentFee
+    }
+    }
+
+// let rentalTotal = rentalCarCost()
+// console.log(rentalTotal);
+
+
+function totalVacationCost() {
+    let totalVacationCost = 0;
+    let finalCost = hotelCost();
+    let plc = planeRideCost();
+    let rentalTotal = rentalCarCost();
+    totalVacationCost += finalCost+plc+rentalTotal
+    return totalVacationCost
+}
+
+let finalTotalVacationCost = totalVacationCost()
+console.log(finalTotalVacationCost);
