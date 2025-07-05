@@ -3,10 +3,10 @@ function playTheGame() {
     if (userChoise===true) {
         alert(`User Confirmed`)
         let userNumber = parseInt(prompt(`Please pick a number between 0 to 10`))
-        if (isNaN(userNumber) || userNumber=="") {
-            alert(`Sorry Not a number, Goodbye`)
-            return;
-        }else if(userNumber>10 || userNumber<0){
+        while(isNaN(userNumber) || userNumber=="" ||userNumber>10 || userNumber<0) {
+            userNumber = parseInt(prompt(`Please pick a number between 0 to 10`))
+        }
+        if(userNumber>10 || userNumber<0){
             alert(`Sorry it's not a good number, Goodbye`)
             return;
         }else {
