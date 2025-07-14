@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Alert, TextInput, Button, KeyboardAvoidingView, Platform } from 'react-native';
 import MapView, { Marker, Polyline } from 'react-native-maps';
+const polyline = require('@mapbox/polyline');
 import * as Location from 'expo-location';
+import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function HomeScreen() {
@@ -23,40 +25,49 @@ export default function HomeScreen() {
     })();
   }, []);
 
-  const generateRandomLoopRoute = () => {
-    if (!location) return;
+const generateRealRoute = async () => {
+  if (!location) return;
 
-    const startLat = location.latitude;
-    const startLng = location.longitude;
-    const targetMeters = parseFloat(distance);
-    const metersToDegrees = 0.000009;
+  try {
+    const response = await axios.post(
+      'https://api.openrouteservice.org/v2/directions/foot-walking?geometry_format=geojson/roundtrip',
+      {
+        coordinates: [
+          [8.681495, 49.41461],
+          [8.687872, 49.420318],
+        ],
+      },
+      {
+        headers: {
+          Authorization: 'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImZhNGI3NGUyODQxODRiN2ZhNmY4ZWQ2MTg2ODk1NTUyIiwiaCI6Im11cm11cjY0In0=',
+          'Content-Type': 'application/json',
+        },
+      }
+    );
 
-    let totalDistance = 0;
-    let angle = Math.random() * 2 * Math.PI;
-    let current = { latitude: startLat, longitude: startLng };
-    const route = [current];
+    const encodedGeometry = response.data.routes?.[0]?.geometry;
 
-    while (totalDistance < targetMeters) {
-      const step = 100 + Math.random() * 100;
-      angle += (Math.random() - 0.5) * (Math.PI / 4);
-
-      const dx = Math.cos(angle) * step * metersToDegrees;
-      const dy = Math.sin(angle) * step * metersToDegrees;
-
-      const next = {
-        latitude: current.latitude + dy,
-        longitude: current.longitude + dx,
-      };
-
-      route.push(next);
-      current = next;
-      totalDistance += step;
+    if (!encodedGeometry) {
+      Alert.alert('Error', 'Route geometry missing');
+      return;
     }
 
-    route.push({ latitude: startLat, longitude: startLng });
+    const decoded = polyline.decode(encodedGeometry);
+    console.log('Decoded polyline points:', decoded);
 
-    setGeneratedRoute(route);
-  };
+    const coords = decoded.map(([lat, lng]: [number, number]) => ({
+      latitude: lat,
+      longitude: lng,
+    }));
+    console.log('Mapped coords:', coords);
+
+    setGeneratedRoute(coords);
+  } catch (error) {
+    console.error('Failed to fetch route:', error);
+    Alert.alert('Error', 'Could not generate route. Please try again.');
+  }
+};
+
 
   const saveRoute = async () => {
     if (!generatedRoute.length) {
@@ -109,7 +120,7 @@ export default function HomeScreen() {
           onChangeText={setDistance}
         />
 
-        <Button title="Generate Route" onPress={generateRandomLoopRoute} />
+        <Button title="Generate Route" onPress={generateRealRoute} />
 
         <TextInput
           style={styles.input}
@@ -164,3 +175,6 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
 });
+
+
+
