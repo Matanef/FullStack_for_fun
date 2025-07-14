@@ -4,8 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './screens/HomeScreen';
 import ParksScreen from './screens/ParksScreens';
 import SharedRoutesScreen from './screens/SharedRoutesScreen';
-import SavedRoutesScreen from './screens/SharedRoutesScreen';
-import RouteViewerScreen from './screens/RouteViewerScreen';
+import SavedRoutesScreen from './screens/SavedRoutesScreen';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -20,7 +19,6 @@ export default function App() {
         <Tab.Screen name="Parks" component={ParksScreen} />
         <Tab.Screen name="Routes" component={SharedRoutesScreen} />
         <Tab.Screen name="Saved Routes" component={SavedRoutesScreen} options={{ title: "Saved Routes" }}/>
-        <Tab.Screen name="Route Viewer" component={RouteViewerScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
