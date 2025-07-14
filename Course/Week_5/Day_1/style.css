@@ -1,0 +1,21 @@
+  .hovered {
+    background-color: rgb(88, 184, 216);
+    color: rgb(210, 170, 170);
+    font-weight: bold;
+  }
+
+  .divstyle {
+    background-color: lightblue;
+    border: 2px solid navy;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .buttonstyle {
+    background-color: rgb(55, 168, 206);
+    border: 2px solid rgb(107, 192, 37);
+    padding: 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <table id="sampleTable" border="1"> 
+            <tr>
+                <td>Row1 cell1</td> 
+                <td>Row1 cell2</td>
+            </tr> 
+            <tr>
+                <td>Row2 cell1</td> 
+                <td>Row2 cell2</td>
+            </tr> 
+        </table>
+
+        <input id="button" type="button" onclick="insertRow()" value="Insert row"> 
+
+        <button id="jsstyle" onmouseover="changeStyle()">Style</button> 
+
+        <div id="divstyle" onmouseover="changeDiv()">
+            <button id="jsstyletwo">Style</button>
+        </div>
+
+        <form id="form1" onsubmit="getvalue(event)"> 
+            <label>First name: </label><input type="text" name="fname" id="inputone" value="David"><br> 
+            <label>Last name: </label><input type="text" name="lname" id="inputtwo" value="BenGurion"><br>
+            <span id="result"></span> 
+            <input type="submit" value="Submit"> 
+            
+        </form> 
+        <script src="script.js" async defer></script>
+    </body>
+</html>

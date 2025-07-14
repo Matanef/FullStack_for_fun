@@ -1,0 +1,27 @@
+.back {
+    background-color: red;
+}
+
+.hide {
+    display: none;
+}
+
+.pback {
+    font-weight: bold;
+}
+
+
+
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade {
+  animation: fadeOut 1s forwards;
+}
