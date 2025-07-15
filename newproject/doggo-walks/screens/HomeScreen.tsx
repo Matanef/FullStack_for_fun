@@ -30,11 +30,11 @@ const generateRealRoute = async () => {
 
   try {
     const response = await axios.post(
-      'https://api.openrouteservice.org/v2/directions/foot-walking?geometry_format=geojson/roundtrip',
+      'https://api.openrouteservice.org/v2/directions/foot-walking?geometry_format=geojson/round_trip',
       {
         coordinates: [
-          [8.681495, 49.41461],
-          [8.687872, 49.420318],
+      [location.longitude, location.latitude], // Giv'atayim Mall
+      [location.longitude, location.latitude],
         ],
       },
       {
