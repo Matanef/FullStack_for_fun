@@ -25,3 +25,15 @@
 .fade {
   animation: fadeOut 1s forwards;
 }
+
+.bluesen{
+    color: blue;
+}
+
+body {
+    padding-top:30px;
+} 
+
+label,input {
+    display:block;
+} 

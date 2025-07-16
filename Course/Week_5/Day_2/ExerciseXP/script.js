@@ -2,8 +2,9 @@ let hOne = document.getElementsByTagName("h1")[0]
 let innertext = hOne.innerHTML
 console.log(innertext);
 
-let allPara = document.getElementsByTagName("p")
-let lastPara = allPara[allPara.length-1]
+let firstarticle = document.getElementsByTagName("article")[0]
+let allParainfirstarticle = firstarticle.getElementsByTagName("p")
+let lastPara = allParainfirstarticle[allParainfirstarticle.length-1]
 lastPara.remove()
 
 let hTwo = document.getElementsByTagName("h2")[0]
@@ -18,8 +19,8 @@ hThree.addEventListener("click", function(event) {
 
 let button = document.getElementsByTagName("button")[0]
 button.addEventListener("click", function(event) {
-    let allPara = document.getElementsByTagName("p")
-    for (let p of allPara) {
+    let allParainfirstarticle = document.getElementsByTagName("p")
+    for (let p of allParainfirstarticle) {
         p.classList.add("pback")
     }
 
@@ -57,6 +58,44 @@ form.addEventListener("submit", function(e){
 let allBoldItems;
 
 function getBoldItems(){
-    let strong = document.querySelectorAll("strong").value
-     
+    allBoldItems = document.querySelectorAll("p strong")
+       
 }
+getBoldItems()
+console.log(allBoldItems);
+
+function highlight() {
+    allBoldItems.forEach(element => {
+        element.classList.add("bluesen")
+    });
+}
+
+
+
+function returnItemsToDefault(){
+        allBoldItems.forEach(element => {
+        element.classList.remove("bluesen")
+    });
+}
+
+
+function calculatingRadius(){
+    let exponent = 3
+    let formThree = document.getElementById("MyForm")
+
+    formThree.addEventListener("submit", function(e){
+        e.preventDefault();
+        let radius = document.getElementById("radius").value
+        let volumeField = document.getElementById("volume")
+        volume = (4/3)*Math.PI*Math.pow(radius, exponent)
+        volumeField.value = volume
+        console.log(`volume: ${volume}`);
+        
+    })
+    
+    
+    
+
+}
+
+calculatingRadius()
