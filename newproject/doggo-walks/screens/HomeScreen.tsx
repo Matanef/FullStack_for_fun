@@ -26,15 +26,18 @@ export default function HomeScreen() {
   }, []);
 
 const generateRealRoute = async () => {
-  if (!location) return;
+  if (!location) {
+    Alert.alert('Error', 'Location not available');
+    return;
+  }
 
   try {
     const response = await axios.post(
-      'https://api.openrouteservice.org/v2/directions/foot-walking?geometry_format=geojson/round_trip',
+      'https://api.openrouteservice.org/v2/directions/foot-walking?geometry_format=geojson',
       {
         coordinates: [
-      [location.longitude, location.latitude], // Giv'atayim Mall
-      [location.longitude, location.latitude],
+          [location.longitude, location.latitude],
+          [location.longitude, location.latitude],
         ],
       },
       {
@@ -45,14 +48,15 @@ const generateRealRoute = async () => {
       }
     );
 
-    const encodedGeometry = response.data.routes?.[0]?.geometry;
+    const route = response.data.routes?.[0];
 
-    if (!encodedGeometry) {
-      Alert.alert('Error', 'Route geometry missing');
+    if (!route || !route.geometry || typeof route.geometry !== 'string') {
+      Alert.alert('Error', 'Route geometry missing or invalid');
       return;
     }
 
-    const decoded = polyline.decode(encodedGeometry);
+    // Decode the encoded polyline
+    const decoded = polyline.decode(route.geometry);
     console.log('Decoded polyline points:', decoded);
 
     const coords = decoded.map(([lat, lng]: [number, number]) => ({
@@ -68,6 +72,8 @@ const generateRealRoute = async () => {
   }
 };
 
+
+// Save Route function
 
   const saveRoute = async () => {
     if (!generatedRoute.length) {
