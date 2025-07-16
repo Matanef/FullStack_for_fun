@@ -33,8 +33,8 @@ const generateRealRoute = async () => {
       'https://api.openrouteservice.org/v2/directions/foot-walking?geometry_format=geojson/round_trip',
       {
         coordinates: [
-      [location.longitude, location.latitude], // Giv'atayim Mall
       [location.longitude, location.latitude],
+      [location.longitude+0.022, location.latitude+0.002],
         ],
       },
       {
