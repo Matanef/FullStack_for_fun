@@ -1,3 +1,5 @@
+// Exercise 1
+
 let container = document.getElementById("container")
 let banner = document.createElement("banner")
 banner.setAttribute("id", "banner")
@@ -36,3 +38,5 @@ setIntervalPractice()
 // button.addEventListener("click", function(){
 //     clearInterval(id)
 // })
+
+//Exercise 2
