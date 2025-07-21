@@ -1,0 +1,13 @@
+.dragPara{
+    color: aliceblue;
+    font-size: 50px;
+    width: fit-content;
+    background-color: blue;
+    position: absolute
+}
+
+.container{
+    position: relative;
+    width: 1080px;
+    height: 1044px;
+}
