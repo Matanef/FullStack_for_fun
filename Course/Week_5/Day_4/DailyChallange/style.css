@@ -1,0 +1,19 @@
+body {
+   background-color: rgb(85, 85, 159); 
+}
+
+#root {
+    display: flex;
+    flex-wrap: wrap;
+}
+#brightSquare{
+    width: 50px;
+    height: 50px;
+    background-color: rgb(180, 255, 230);
+}
+
+#secondarySquare{
+    width: 50px;
+    height: 50px;
+    background-color: rgb(24, 120, 88);
+}
