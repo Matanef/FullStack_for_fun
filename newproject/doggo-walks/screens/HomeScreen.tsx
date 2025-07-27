@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Alert, TextInput, Button, KeyboardAvoidingView, Platform } from 'react-native';
 import MapView, { Marker, Polyline } from 'react-native-maps';
-const polyline = require('@mapbox/polyline');
 import * as Location from 'expo-location';
-import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+const polyline = require('@mapbox/polyline');
+import axios from 'axios';
+
+type Coordinate = {
+  latitude: number;
+  longitude: number;
+};
 
 export default function HomeScreen() {
-  const [location, setLocation] = useState<Location.LocationObjectCoords | null>(null);
+  const [location, setLocation] = useState<Coordinate | null>(null);
   const [distance, setDistance] = useState<string>('1000');
   const [routeName, setRouteName] = useState<string>('');
-  const [generatedRoute, setGeneratedRoute] = useState<{ latitude: number; longitude: number }[]>([]);
+  const [generatedRoute, setGeneratedRoute] = useState<Coordinate[]>([]);
 
+  // Fetch user location once at startup
   useEffect(() => {
     (async () => {
       const { status } = await Location.requestForegroundPermissionsAsync();
@@ -21,59 +27,56 @@ export default function HomeScreen() {
       }
 
       const loc = await Location.getCurrentPositionAsync({});
-      setLocation(loc.coords);
+      const coords = {
+        latitude: loc.coords.latitude,
+        longitude: loc.coords.longitude,
+      };
+      setLocation(coords); // ✅ No type error now
     })();
   }, []);
 
-const generateRealRoute = async () => {
-  if (!location) {
-    Alert.alert('Error', 'Location not available');
-    return;
-  }
-
-  try {
-    const response = await axios.post(
-      'https://api.openrouteservice.org/v2/directions/foot-walking?geometry_format=geojson',
-      {
-        coordinates: [
-      [location.longitude, location.latitude],
-      [location.longitude+0.022, location.latitude+0.002],
-        ],
-      },
-      {
-        headers: {
-          Authorization: 'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImZhNGI3NGUyODQxODRiN2ZhNmY4ZWQ2MTg2ODk1NTUyIiwiaCI6Im11cm11cjY0In0=',
-          'Content-Type': 'application/json',
-        },
-      }
-    );
-
-    const route = response.data.routes?.[0];
-
-    if (!route || !route.geometry || typeof route.geometry !== 'string') {
-      Alert.alert('Error', 'Route geometry missing or invalid');
+  const generateRealRoute = async () => {
+    if (!location) {
+      Alert.alert('Location error', 'User location is unavailable.');
       return;
     }
 
-    // Decode the encoded polyline
-    const decoded = polyline.decode(route.geometry);
-    console.log('Decoded polyline points:', decoded);
+    try {
+      const response = await axios.post(
+        'https://api.openrouteservice.org/v2/directions/foot-walking?geometry_format=encodedpolyline',
+        {
+          coordinates: [
+            [location.longitude, location.latitude],
+            [location.longitude + 0.005, location.latitude + 0.005], // Dummy second point
+          ],
+        },
+        {
+          headers: {
+            Authorization: 'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImZhNGI3NGUyODQxODRiN2ZhNmY4ZWQ2MTg2ODk1NTUyIiwiaCI6Im11cm11cjY0In0=', // Replace with your actual key
+            'Content-Type': 'application/json',
+          },
+        }
+      );
 
-    const coords = decoded.map(([lat, lng]: [number, number]) => ({
-      latitude: lat,
-      longitude: lng,
-    }));
-    console.log('Mapped coords:', coords);
+      const route = response.data.routes?.[0];
+      if (!route || !route.geometry) {
+        Alert.alert('Error', 'Route geometry missing or invalid');
+        return;
+      }
 
-    setGeneratedRoute(coords);
-  } catch (error) {
-    console.error('Failed to fetch route:', error);
-    Alert.alert('Error', 'Could not generate route. Please try again.');
-  }
-};
+      // Decode polyline
+      const decoded = polyline.decode(route.geometry);
+      const coords = decoded.map(([lat, lng]) => ({
+        latitude: lat,
+        longitude: lng,
+      }));
 
-
-// Save Route function
+      setGeneratedRoute(coords);
+    } catch (error) {
+      console.error('Failed to fetch route:', error);
+      Alert.alert('Error', 'Could not generate route. Please try again.');
+    }
+  };
 
   const saveRoute = async () => {
     if (!generatedRoute.length) {
@@ -149,11 +152,7 @@ const generateRealRoute = async () => {
       >
         <Marker coordinate={location} title="You're here" />
         {generatedRoute.length > 0 && (
-          <Polyline
-            coordinates={generatedRoute}
-            strokeColor="#FF6347"
-            strokeWidth={4}
-          />
+          <Polyline coordinates={generatedRoute} strokeColor="#FF6347" strokeWidth={4} />
         )}
       </MapView>
     </KeyboardAvoidingView>
@@ -181,6 +180,3 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
 });
-
-
-
