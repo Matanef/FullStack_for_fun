@@ -1,3 +1,10 @@
+#container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
 .key {
     width: 55px;
     height: 55px;
@@ -6,6 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
 }
 
 .keysarea {
@@ -13,4 +21,8 @@
     height: 750px;
     display: flex;
     flex-wrap: wrap;
+}
+
+#pressedKey {
+    background-color: red;
 }
