@@ -1,0 +1,16 @@
+.key {
+    width: 55px;
+    height: 55px;
+    border: 1px solid black;
+    margin: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.keysarea {
+    width: 1080px;
+    height: 750px;
+    display: flex;
+    flex-wrap: wrap;
+}
