@@ -136,6 +136,7 @@ document.addEventListener("keyup", function(event){
 function OpenHat() {
     let openhat = new Audio(`./drumset_setup-master/drumset_setup-master/sounds/openhat.wav`)
     openhat.play()
+    keyG.style.backgroundColor = "red" 
 }
 
 keyG.addEventListener("mousedown", OpenHat)
