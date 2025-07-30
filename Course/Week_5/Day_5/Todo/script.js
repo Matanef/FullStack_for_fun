@@ -2,7 +2,7 @@ let form = document.getElementById("form")
 let input = document.getElementById("inputfield")
 let button = document.getElementById("submitButton")
 let list = document.getElementsByClassName("list")[0]
-
+let clearButton = document.getElementById("clear")
 
 let todoList = []
 
@@ -21,11 +21,16 @@ function addItem(event){
     else{
         todoList.push(inputValue)
         console.log(todoList);
-        let liList = document.createElement("li")
-        liList.innerHTML = `${inputValue}`
-        list.appendChild(liList)
+        let liList = document.createElement("li");
+        liList.innerHTML = `${todoList.length}. ${inputValue}`;
+        list.appendChild(liList);
     }
 
 }
 
-
+clearButton.addEventListener("click", function() {
+    todoList.length = 0
+    console.log(todoList);
+    list.innerHTML = ""
+    
+})
