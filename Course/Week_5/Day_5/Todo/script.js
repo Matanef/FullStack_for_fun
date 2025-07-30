@@ -22,7 +22,7 @@ function addItem(event){
         todoList.push(inputValue)
         console.log(todoList);
         let liList = document.createElement("li");
-        liList.innerHTML = `${todoList.length}. ${inputValue}`;
+        liList.innerHTML = `<input type="checkbox">${todoList.length}. ${inputValue}`;
         list.appendChild(liList);
     }
 
