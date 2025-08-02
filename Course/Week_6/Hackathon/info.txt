@@ -1,0 +1,21 @@
+1. HTML Structure
+
+    A grid container (like a 3x3 or 4x4 layout).
+
+    Each “hole” will be a div where a “mole” can appear.
+
+    A score display.
+
+    A start/reset button.
+
+    Optionally: timer display.
+
+2. CSS
+
+    Style each hole as a square or circle.
+
+    Style the mole (could be a class added dynamically).
+
+    Basic animations if you like.
+
+3. JavaScript Logic
