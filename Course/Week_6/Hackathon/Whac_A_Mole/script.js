@@ -1,9 +1,15 @@
 let container = document.getElementById("container")
 let gameBoard = document.getElementById("game-board")
 let generateButton = document.getElementById("generate-board")
+let score = 0
+let timeLeft = 30
+let moleInterval
+let timerInterval
+let isGameRunning = false
+let topScore = 0
 
+let gameInterval = null
 
-let moleInterval = null
 generateButton.addEventListener("click", () => {
     let size = parseInt(document.getElementById("board-size").value)
     createGrid(size)
@@ -26,21 +32,92 @@ function createGrid(size){
 }
 
 function startGame(size){
+    score = 0
+    timeLeft = 30
+    divscore.innerHTML = `Score: ${score}     `
+    timerdisplay.innerHTML = `Time left: ${timeLeft}`
+    isGameRunning = true
+
     if (moleInterval) {
         clearInterval(moleInterval)
+    }
+    if (timerInterval) {
+        clearInterval(timerInterval)
     }
     moleInterval = setInterval(() => {
        spawnMole(size) 
     }, 1500);
+    timerInterval = setInterval(() => {
+        timeLeft--
+        timerdisplay.innerHTML = `Time left: ${timeLeft}`
+        if (timeLeft <=0) {
+            clearInterval(moleInterval)
+            clearInterval(timerInterval)
+            isGameRunning = false
+            if (score > topScore) {
+                topScore = score
+            }
+            alert(`Game Over! final Score: ${score}`)
+        }
+    }, 1000);
+
+
 }
+
 
 function spawnMole(size){
     let holes = document.querySelectorAll(".hole")
-    holes.forEach(hole => hole.classList.remove("mole"));
+    holes.forEach(hole => {
+        hole.classList.remove("mole")
+        hole.removeAttribute("data-hit")
+    });
+
     let randomIndex = Math.floor(Math.random() * size* size)
     let randomHole = document.querySelector(`[data-index="${randomIndex}"]`)
+    randomHole.style.cursor = "pointer"
 
     if (randomHole) {
         randomHole.classList.add("mole")
+        randomHole.setAttribute("data-hit", "false")
     }
+    
 }
+
+
+
+let scoreContainer = document.getElementById("scoreContainer")
+scoreContainer.style.display = "flex"
+scoreContainer.style.justifyContent = "center"
+
+let divscore = document.createElement("div")
+divscore.innerHTML = `Score: ${score}  - `
+scoreContainer.appendChild(divscore)
+
+let topScoreDisplay = document.createElement("div")
+topScoreDisplay.innerHTML = ` Top Score: ${topScore}`
+scoreContainer.appendChild(topScoreDisplay)
+
+
+let timerdisplay = document.createElement("div")
+timerdisplay.innerHTML = `Time left: ${timeLeft}`
+timerdisplay.style.marginLeft = "20px"
+scoreContainer.appendChild(timerdisplay)
+
+
+gameBoard.addEventListener("click", function(event){
+    if (!isGameRunning) return
+
+    if (event.target.classList.contains("mole") && event.target.getAttribute("data-hit") === "false") {
+        score++
+        event.target.setAttribute("data-hit", "true")
+        event.target.classList.add("hit")
+    }else{
+        score--
+        
+    }
+    divscore.innerHTML = `Score: ${score}`
+})
+
+
+
+
