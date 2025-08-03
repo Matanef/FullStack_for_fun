@@ -34,7 +34,7 @@ function createGrid(size){
 function startGame(size){
     score = 0
     timeLeft = 30
-    divscore.innerHTML = `Score: ${score}     `
+    divscore.innerHTML = `Score: ${score}`
     timerdisplay.innerHTML = `Time left: ${timeLeft}`
     isGameRunning = true
 
@@ -54,10 +54,12 @@ function startGame(size){
             clearInterval(moleInterval)
             clearInterval(timerInterval)
             isGameRunning = false
-            if (score > topScore) {
-                topScore = score
-            }
-            alert(`Game Over! final Score: ${score}`)
+        if (score > topScore) {
+        topScore = score
+        }
+        topScoreDisplay.innerHTML = `Top Score: ${topScore}`
+        alert(`Game Over! Final Score: ${score}. Top Score: ${topScore}`)
+
         }
     }, 1000);
 
@@ -90,11 +92,12 @@ scoreContainer.style.display = "flex"
 scoreContainer.style.justifyContent = "center"
 
 let divscore = document.createElement("div")
-divscore.innerHTML = `Score: ${score}  - `
+divscore.innerHTML = `Score: ${score}`
 scoreContainer.appendChild(divscore)
 
 let topScoreDisplay = document.createElement("div")
-topScoreDisplay.innerHTML = ` Top Score: ${topScore}`
+topScoreDisplay.innerHTML = `Top Score: ${topScore}`
+topScoreDisplay.style.marginLeft = "20px"
 scoreContainer.appendChild(topScoreDisplay)
 
 
