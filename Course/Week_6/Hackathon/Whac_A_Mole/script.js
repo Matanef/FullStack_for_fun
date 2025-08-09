@@ -109,16 +109,23 @@ scoreContainer.appendChild(timerdisplay)
 
 gameBoard.addEventListener("click", function(event){
     if (!isGameRunning) return
-
-    if (event.target.classList.contains("mole") && event.target.getAttribute("data-hit") === "false") {
+    let target = event.target
+    if (target.classList.contains("mole")) {
         score++
-        event.target.setAttribute("data-hit", "true")
-        event.target.classList.add("hit")
+        divscore.innerHTML = `Score: ${score}`
+
+        target.setAttribute("data-hit", "true")
+        target.classList.add("hit");
+        target.classList.remove("mole");
+        console.log("Mole was hit!", target);
+        setTimeout(() => {
+            target.classList.remove("hit")
+        }, 300);
     }else{
         score--
-        
+        divscore.innerHTML = `Score: ${score}`
     }
-    divscore.innerHTML = `Score: ${score}`
+    
 })
 
 
