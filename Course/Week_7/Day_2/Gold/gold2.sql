@@ -21,3 +21,35 @@ VALUES (3, 3, 1),
 	(1, 1,2 )
 
 DROP TABLE purchases
+
+SELECT * FROM purchases
+
+SELECT p.*, c.first_name, c.last_name FROM purchases AS p
+INNER JOIN customers AS c
+	ON p.customer_id=c.id
+
+SELECT p.*, c.first_name, c.last_name
+FROM purchases AS p
+INNER JOIN customers AS c
+	ON p.customer_id = c.id
+WHERE c.id = 5
+
+
+SELECT p.*, i.product_name
+FROM purchases AS p
+INNER JOIN items AS i
+	ON p.item_id= i.id
+WHERE i.product_name = 'Large Desk' OR i.product_name = 'Small Desk'
+
+
+SELECT * FROM items
+
+SELECT c.first_name, c.last_name, i.product_name
+FROM purchases AS p
+INNER JOIN customers AS c
+	ON p.customer_id=c.id
+INNER JOIN items AS i
+	ON p.item_id=i.id
+
+INSERT INTO purchases (customer_id, quantity_purchased)
+VALUES (2,4)
