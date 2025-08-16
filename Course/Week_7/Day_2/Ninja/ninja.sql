@@ -13,11 +13,25 @@ FROM (
 ) AS sub
 ORDER BY first_name ASC
 
-DELETE FROM purchases 
-WHERE customer_id = 5
+DELETE FROM purchases p
+USING customers c
+WHERE p.customer_id = c.id
+	AND c.first_name = 'Scott'
+
+DELETE FROM customers 
+WHERE first_name = 'Scott'
+
 
 SELECT * FROM purchases
-SELECT * FROM customers
+SELECT * FROM customers WHERE first_name = 'Scott'
 
 
-SELECT * FROM purchases 
+SELECT p.id, p.quantity_purchased, c.first_name, c.last_name 
+FROM purchases AS p
+LEFT JOIN customers AS c
+	ON p.customer_id=c.id
+
+SELECT p.quantity_purchased FROM purchases AS p
+INNER JOIN customers AS c
+	ON p.customer_id=c.id
+WHERE c.first_name = 'Scott'
